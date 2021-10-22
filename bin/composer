@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -eu
+
+readonly PROJECT_DIR="$(realpath "$(dirname "$(realpath "$0")")/..")"
+source "${PROJECT_DIR}"/bin/common.inc.bash
+
+if type docker > /dev/null 2>&1; then
+    readonly DOCKER_IMAGE="${DOCKER_IMAGE_DEV}"
+    source "${PROJECT_DIR}"/bin/dockerise.inc.bash
+fi
+
+composer "${@}"
