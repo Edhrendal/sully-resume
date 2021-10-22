@@ -9,4 +9,14 @@ readonly PROJECT_DIR="$(realpath "$(dirname "$(realpath "$0")")/../..")"
 source "${PROJECT_DIR}/bin/dev/common.inc.bash"
 source "${PROJECT_DIR}"/bin/dockerise.inc.bash
 
-php --version
+startParameters=
+for param in "${@}"; do
+    if [ "${param}" == "--refresh" ]; then
+        # Nothing
+        :
+    else
+        startParameters="${startParameters} ${param}"
+    fi
+done
+
+php "${PROJECT_DIR}"/bin/dev/start.php ${startParameters}

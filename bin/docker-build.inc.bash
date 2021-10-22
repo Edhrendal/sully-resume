@@ -32,7 +32,4 @@ for param in "${@}"; do
     fi
 done
 
-if [ ! "$(docker inspect "${DOCKER_IMAGE}" --format="ignore me" 2> /dev/null)" ] || [ "${refresh}" == true ]; then
-    printf "\e[35mImage ${DOCKER_IMAGE} will be built\e[0m\n"
-    buildDockerImage "${DOCKER_IMAGE}" "${DOCKER_FILE_PATH}" "${DOCKER_TARGET}"
-fi
+buildDockerImage "${DOCKER_IMAGE}" "${DOCKER_FILE_PATH}" "${DOCKER_TARGET}"
