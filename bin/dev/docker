@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -eu
+
+readonly PROJECT_DIR="$(realpath "$(dirname "$(realpath "$0")")/../..")"
+source "${PROJECT_DIR}"/bin/common.inc.bash
+source "${PROJECT_DIR}"/bin/dev/common.inc.bash
+
+if type docker > /dev/null 2>&1; then
+    # Build image if not exist
+    source "${PROJECT_DIR}"/bin/docker-build.inc.bash
+fi

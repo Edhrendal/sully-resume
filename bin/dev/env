@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -eu
+
+readonly PROJECT_DIR="$(realpath "$(dirname "$(realpath "$0")")/../..")"
+source "${PROJECT_DIR}"/bin/common.inc.bash
+
