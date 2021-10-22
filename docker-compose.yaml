@@ -1,0 +1,15 @@
+version: "3.8"
+
+service:
+  db:
+    image: postgres
+    environnement:
+      POSTGRES_USER: sully
+      POSTGRES_PASSWORD: sully
+    ports:
+      - 5432:5432
+    volumes:
+      db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
